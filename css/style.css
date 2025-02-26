@@ -1,0 +1,276 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans 3", serif;
+}
+
+/* header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: #ffffff;
+}
+
+footer{
+    padding: 1em;
+    background-color: #090909;
+    text-align: center;
+    color: white
+}
+
+.alien {
+    font-size: 1.2rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+      0%, 100% {
+        transform: translateY(0); /* Original position */
+      }
+      75% {
+        transform: translateY(-3px); /* Move up */
+      }
+      50% {
+        transform: translateX(-3px);
+      }
+      25% {
+        transform: translateY(3px);
+      }
+    }
+
+nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #090909
+}
+
+li a:hover,
+li a:active{
+    color: purple;
+}
+
+a:focus{
+    color: purple;
+}
+
+
+
+/* typography */
+
+.title {
+    font-family: "Roboto", serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul li {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-left: 1.25em;
+}
+
+.date{
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.75em;
+}
+
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    color: #141414;
+    margin: 0.25em 0;
+}
+
+p{
+    max-width: 750px;
+}
+
+/* grid layout */
+
+.grid-container {
+    padding: 1.5em 1em;
+    display: grid;
+    gap: 1.5em;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "wd"
+        "mg"
+        "rd"
+        "ad"
+        "dt"
+        "dd"
+        "ai";
+}
+
+.card {
+    text-decoration: none;
+}
+
+.card-img {
+    width: 100%;
+}
+
+/* .animate {
+    transition: transform 2s ease-in-out;
+}
+
+.animate:hover .animate .card-img {
+    transform: scale(0.9);
+    /* border-radius: 50%; */
+/* } */ 
+
+.web-design {
+    grid-area: wd;
+}
+
+.motion-graphics {
+    grid-area: mg;
+}
+
+.responsive-design {
+    grid-area: rd;
+}
+
+.accessible-development {
+    grid-area: ad;
+}
+
+.developer-tools {
+    grid-area: dt;
+}
+
+.web-documentation {
+    grid-area: dd;
+}
+
+.ai {
+    grid-area: ai;
+}
+
+.card .date {
+    color: #000000;
+}
+
+.card p {
+    color: #505050
+}
+
+.card:hover,
+.card:active{
+    filter: brightness(0.8);
+    box-shadow: 7px 7px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card:focus {
+    border: 2px solid lightgray;
+}
+
+
+
+/* main */
+.featured{
+    background-image: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    background-blend-mode: darken; 
+    background-size: cover;
+    color: #ffffff;
+    padding: 1em;
+    min-height: 293px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.featured h1 {
+    margin: 0.5em 0;
+    text-shadow: 1px 1px black;
+}
+
+.featured p{
+    text-shadow: 2px 2px black;    
+}
+
+@media (min-width: 768px){
+    header{
+        padding: 1em 2em;
+    }
+    
+    .title{
+        font-size: 1.25rem;
+    }
+    
+    .alien{
+        font-size: 1.5rem;
+    }
+    
+    nav ul li{
+        font-size: 1rem;
+    }
+    
+    .featured {
+        height: 75vh;
+        padding: 2em;
+    }
+    
+    h1{
+        font-size: 2.5rem;
+    }
+    
+    /* grid */
+    
+    .grid-container {
+        margin: 0 auto;
+        padding: 2em;
+        max-width: 979px;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-areas:
+         "wd wd wd wd mg mg mg mg rd rd rd rd"
+         "ad ad ad ad dt dt dt dt dd dd dd dd" 
+         ".. .. .. ..ai ai ai ai .. .. .. .."
+            
+        ;
+    }
+    
+    .card {
+        box-shadow: 7px 7px 10px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card p{
+        margin-bottom: 0.5em;
+    }
+    
+    /* 
+        wd"
+        "mg"
+        "rd"
+        "ad"
+        "dt"
+        "dd"
+        "ai"
+     */
+}
