@@ -18,6 +18,7 @@ function renderlist() {
             <div
                 class="card ${title}"
                 id=${id}
+                tabindex="0"
             >
                 <img 
                     src=${image}

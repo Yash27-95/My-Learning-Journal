@@ -96,10 +96,6 @@ nav ul li {
     
 }
 
-h1 h2 p{
-    line-height: 1.5;
-}
-
 h1{
     font-size: 2rem;
     font-weight: bold;
@@ -107,11 +103,11 @@ h1{
 
 h2 {
     color: #141414;
-    margin: 0.25em 0;
 }
 
 p{
     max-width: 750px;
+    line-height: 1.5;
 }
 
 /* grid layout */
@@ -130,25 +126,15 @@ p{
         "dd"
         "ai"
         "ds";
-}
+} 
 
 .card {
-    text-decoration: none;
-
+    /* cursor: pointer; */
 }
 
 .card-img {
     width: 100%;
 }
-
-/* .animate {
-    transition: transform 2s ease-in-out;
-}
-
-.animate:hover .animate .card-img {
-    transform: scale(0.9);
-    /* border-radius: 50%; */
-/* } */ 
 
 .web-design {
     grid-area: wd;
@@ -182,9 +168,13 @@ p{
     grid-area: ds;
 }
 
+.card h2 {
+    margin: 0.25em 0;
+}
+
 .card .date {
     color: #000000;
-    margin-top: 1em;
+    margin-top: 1.25em;
 }
 
 .card p {
@@ -201,20 +191,24 @@ p{
 }
 
 .card:hover,
-.card:active{
-    filter: brightness(0.8);
-    box-shadow: 7px 7px 10px 2px rgba(0, 0, 0, 0.1);
+.card:active
+.card:focus{
+    box-shadow: 0 0 10px rgba(155, 160, 163, 0.8);
+    padding: 1em;
+    transition: 0.3s ease-in;
 }
 
-.card:focus {
-    border: 2px solid lightgray;
-}
+/* .card:focus{
+    outline: 1px solid rgb(230, 57, 230);
+} */
+
+
 
 
 
 /* main */
 .featured{
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    background-color: rgba(0, 0, 0, 0.45);
     background-blend-mode: darken; 
     background-size: cover;
     background-position: center;
@@ -227,18 +221,12 @@ p{
     justify-content: end;
 }
 
-.featured .date {
-    text-shadow: 1px 1px black;    
-}
-
-.featured h1 {
-    margin: 0.5em 0;
-    text-shadow: 1px 1px black;
-}
-
+.featured .date,
+.featured h1,
 .featured p{
-    text-shadow: 1px 1px black;    
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);   
 }
+
 
 @media (min-width: 768px){
     header{
