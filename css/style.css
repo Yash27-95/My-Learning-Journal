@@ -93,7 +93,11 @@ nav ul li {
     font-size: 0.75rem;
     text-transform: uppercase;
     display: block;
-    margin-top: 0.75em;
+    
+}
+
+h1 h2 p{
+    line-height: 1.5;
 }
 
 h1{
@@ -113,7 +117,7 @@ p{
 /* grid layout */
 
 .grid-container {
-    padding: 1.5em 1em;
+    padding: 1em 1em;
     display: grid;
     gap: 1.5em;
     grid-template-columns: 1fr;
@@ -124,11 +128,13 @@ p{
         "ad"
         "dt"
         "dd"
-        "ai";
+        "ai"
+        "ds";
 }
 
 .card {
     text-decoration: none;
+
 }
 
 .card-img {
@@ -172,12 +178,26 @@ p{
     grid-area: ai;
 }
 
+.developer-setup {
+    grid-area: ds;
+}
+
 .card .date {
     color: #000000;
+    margin-top: 1em;
 }
 
 .card p {
-    color: #505050
+    color: #505050;
+    margin-bottom: 1em;
+}
+
+.visit{
+    color: purple;
+    border-bottom: 1px solid purple;
+    display: inline-block;
+    line-height: 1;
+    font-weight: 500;
 }
 
 .card:hover,
@@ -194,16 +214,21 @@ p{
 
 /* main */
 .featured{
-    background-image: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
     background-blend-mode: darken; 
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #ffffff;
     padding: 1em;
-    min-height: 293px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: end;
+}
+
+.featured .date {
+    text-shadow: 1px 1px black;    
 }
 
 .featured h1 {
@@ -212,7 +237,7 @@ p{
 }
 
 .featured p{
-    text-shadow: 2px 2px black;    
+    text-shadow: 1px 1px black;    
 }
 
 @media (min-width: 768px){
