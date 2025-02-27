@@ -46,7 +46,7 @@ footer{
       25% {
         transform: translateY(3px);
       }
-    }
+}
 
 nav ul{
     display: flex;
@@ -54,17 +54,16 @@ nav ul{
     justify-content: space-between;
 }
 
-nav ul li a{
-    text-decoration: none;
+nav ul li{
     color: #090909
 }
 
-li a:hover,
-li a:active{
+li:hover,
+li:active{
     color: purple;
 }
 
-a:focus{
+li:focus{
     color: purple;
 }
 
@@ -129,7 +128,8 @@ p{
 } 
 
 .card {
-    /* cursor: pointer; */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-img {
@@ -188,25 +188,61 @@ p{
     display: inline-block;
     line-height: 1;
     font-weight: 500;
+    transition: transform 0.3s ease-in-out;
 }
 
-.card:hover,
-.card:active
-.card:focus{
-    box-shadow: 0 0 10px rgba(155, 160, 163, 0.8);
-    padding: 1em;
-    transition: 0.3s ease-in;
+@keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(-10px);
+    }
+    40% {
+      transform: translateY(0);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+    80% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-2px);
+    }
 }
 
-/* .card:focus{
-    outline: 1px solid rgb(230, 57, 230);
+.visit:hover {
+    animation: bounce 0.6s ease;
+}
+
+/* .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 } */
 
+/* .card:active {
+    transform: scale(0.98); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+} */
 
+/* .card:focus {
+    outline: none; 
+    box-shadow: 0 0 10px 4px rgba(96, 105, 112, 0.7); 
+    transform: scale(1.05); 
+}
 
+.card:focus-visible {
+    outline: 2px solid #2980b9; 
+} */
 
+/* .card:active:focus {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+    transform: scale(0.98); 
+} */
 
 /* main */
+
 .featured{
     background-color: rgba(0, 0, 0, 0.45);
     background-blend-mode: darken; 
@@ -227,8 +263,89 @@ p{
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);   
 }
 
+/* mobile design */
 
-@media (min-width: 768px){
+@media (min-width: 360px) {
+    .card:active {
+        transform: scale(0.9); 
+        box-shadow: 0 5px 10px rgba(104, 102, 102, 0.2);  /* Smaller shadow on click */
+    }    
+}
+
+/* tablet design */
+
+@media (min-width: 600px) {
+
+    /* nav */
+
+    header{
+        padding: 1em 2em;
+    }
+
+    .alien {
+        font-size: 1.75rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    nav ul li{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    /* featured */
+
+    .featured {
+        /* height: 75vh; */
+        padding: 2em;
+    }
+
+    .featured h1{
+        font-size: 2rem;
+        margin: 0.5rem 0;
+    }
+
+    .featured p{
+        max-width: 600px;
+    }
+
+    /* list grid*/
+
+    .grid-container {
+        margin: 0 auto;
+        padding: 2em;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas:
+            "wd wd wd wd mg mg mg mg"   
+            "rd rd rd rd ad ad ad ad"
+            "dt dt dt dt dd dd dd dd"
+            "ai ai ai ai ds ds ds ds"
+        ;
+    }
+
+    .card {
+        box-shadow: 0 0 7px rgba(155, 160, 163, 0.8);
+        padding: 1em;
+    }
+
+    .visit{
+        font-weight: 600;
+    }
+}
+    
+    /* "wd"
+    "mg"
+    "rd"
+    "ad"
+    "dt"
+    "dd"
+    "ai"
+    "ds"; */
+
+@media (min-width: 1024px){
     header{
         padding: 1em 2em;
     }
@@ -243,6 +360,7 @@ p{
     
     nav ul li{
         font-size: 1rem;
+        /* font-weight: ; */
     }
     
     .featured {
@@ -252,7 +370,7 @@ p{
     
     h1{
         font-size: 2.5rem;
-    }
+    } 
     
     /* grid */
     
@@ -264,7 +382,7 @@ p{
         grid-template-areas:
          "wd wd wd wd mg mg mg mg rd rd rd rd"
          "ad ad ad ad dt dt dt dt dd dd dd dd" 
-         ".. .. .. ..ai ai ai ai .. .. .. .."
+         ".. .. .. .. ai ai ai ai ds ds ds ds"
             
         ;
     }
@@ -286,4 +404,4 @@ p{
         "dd"
         "ai"
      */
-}
+} 
