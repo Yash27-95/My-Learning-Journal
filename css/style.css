@@ -129,7 +129,7 @@ p{
 
 .card {
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-img {
@@ -216,31 +216,6 @@ p{
     animation: bounce 0.6s ease;
 }
 
-/* .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
-} */
-
-/* .card:active {
-    transform: scale(0.98); 
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
-} */
-
-/* .card:focus {
-    outline: none; 
-    box-shadow: 0 0 10px 4px rgba(96, 105, 112, 0.7); 
-    transform: scale(1.05); 
-}
-
-.card:focus-visible {
-    outline: 2px solid #2980b9; 
-} */
-
-/* .card:active:focus {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
-    transform: scale(0.98); 
-} */
-
 /* main */
 
 .featured{
@@ -265,9 +240,10 @@ p{
 
 /* mobile design */
 
-@media (min-width: 360px) {
+@media (max-width: 600px) {
+
     .card:active {
-        transform: scale(0.9); 
+        transform: scale(0.95); 
         box-shadow: 0 5px 10px rgba(104, 102, 102, 0.2);  /* Smaller shadow on click */
     }    
 }
@@ -327,23 +303,26 @@ p{
     }
 
     .card {
-        box-shadow: 0 0 7px rgba(155, 160, 163, 0.8);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         padding: 1em;
     }
 
     .visit{
         font-weight: 600;
     }
+
+    .card:hover,
+    .card:focus{
+        transform: none;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:active {
+        transform: scale(1.2); 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    } 
 }
-    
-    /* "wd"
-    "mg"
-    "rd"
-    "ad"
-    "dt"
-    "dd"
-    "ai"
-    "ds"; */
 
 @media (min-width: 1024px){
     header{
@@ -364,31 +343,31 @@ p{
     }
     
     .featured {
-        height: 75vh;
+        height: 50vh;
         padding: 2em;
     }
     
-    h1{
+    .featured h1{
         font-size: 2.5rem;
     } 
+
+    .featured p {
+        max-width: 65vw;
+    }
     
     /* grid */
     
     .grid-container {
         margin: 0 auto;
         padding: 2em;
-        max-width: 979px;
+        max-width: 80vw;
+        gap: 1.5em;
         grid-template-columns: repeat(12, 1fr);
         grid-template-areas:
          "wd wd wd wd mg mg mg mg rd rd rd rd"
          "ad ad ad ad dt dt dt dt dd dd dd dd" 
-         ".. .. .. .. ai ai ai ai ds ds ds ds"
-            
+         "ai ai ai ai ai ai ai ds ds ds ds ds"   
         ;
-    }
-    
-    .card {
-        box-shadow: 7px 7px 10px 2px rgba(0, 0, 0, 0.1);
     }
     
     .card p{
