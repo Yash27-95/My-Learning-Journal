@@ -153,7 +153,7 @@ export default [
         list: [
             {
                 list_heading: "Improved Accessibility",
-                list_description: "Semantic HTML provides meaningful structure to a webpage by using HTML elements according to their intended purpose. For example, using <header>, <footer>, <article>, and <nav> helps screen readers and assistive technologies better understand the content, making websites more accessible to people with disabilities, such as visual or hearing impairments."
+                list_description: "Semantic HTML provides meaningful structure to a webpage by using HTML elements according to their intended purpose. For example, using header, footer, article, and nav helps screen readers and assistive technologies better understand the content, making websites more accessible to people with disabilities, such as visual or hearing impairments."
             },
             {
                 list_heading: "Better SEO (Search Engine Optimization)",
