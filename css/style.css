@@ -11,6 +11,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Source Sans 3", serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* header */
@@ -258,6 +261,87 @@ p{
 
 h4{
     text-align: center;
+}
+
+/* about me */
+
+main{
+    flex: 1;
+    /* justify-content: center; */
+}
+
+.about-me{
+    display: flex;    
+    flex-direction: column;
+    padding: 1em;
+}
+
+.img-intro{
+    display: flex;    
+    flex-direction: column;    
+}
+
+.my-photo{
+    width: 200px;
+    max-width: 250px;
+    height: auto;
+    object-fit: cover;
+    align-self: center;
+    margin-bottom: 1.5em;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    
+    /* Animation */
+    animation: fadeInRotate 1.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+/* intro img Hover Effect (Only for Larger Screens) */
+
+@media (min-width: 768px) {
+    .my-photo:hover {
+        transform: rotate(10deg) scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes fadeInRotate {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-15deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.about-me p{
+    margin-bottom: 1em;
+}
+
+.my-name {
+    font-weight: bold;
+    color: #59bdd4;
+    border-right: 2px solid #59bdd4; /* Cursor effect */
+    text-shadow: 0px 0px 2px rgba(150, 149, 149, 0.2);
+    /* text-shadow: 0px 0px 8px rgba(89, 189, 212, 0.8); */
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 0; /* Start hidden */
+    vertical-align: bottom;
+    animation: typing 1.5s steps(25) forwards, blink 0.7s infinite;    
+}
+
+/* Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 200px; }
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+    50% { border-color: transparent; }
 }
 
 /* tablet design */

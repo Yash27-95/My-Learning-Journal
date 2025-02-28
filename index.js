@@ -1,9 +1,40 @@
 import data from "/data.js"
 
 // console.log(data)
-
+const main = document.getElementById("main")
 const sec1 = document.getElementById("s1")
 const grid = document.getElementById("grid")
+const about = document.getElementById("about")
+
+about.addEventListener("click", function(){
+    main.innerHTML = `
+        <div class="about-me">
+            <div class="img-intro">
+                <img class="my-photo" src="/images/my_photo.jpg" alt="Yashwanth posing stylishly"/>
+                <p>
+                    Hi! I'm <span class="my-name">Yashwanth Kesthur Shankar</span>, an 
+                    <strong>aspiring Frontend Developer</strong> passionate about crafting 
+                    <strong>beautiful, functional, and user-friendly web experiences</strong>.  
+                    I specialize in <strong>HTML, CSS, JavaScript</strong>, and modern frameworks 
+                    like <strong>React</strong>, bringing <strong>creative designs to life</strong> 
+                    with <strong>smooth animations</strong> and <strong>seamless interactivity</strong>.
+                </p>            
+            </div>
+            <p>
+                My journey into <strong>frontend development</strong> started with a <strong>deep curiosity</strong>  
+                about how websites work and a love for <strong>clean, intuitive design</strong>.  
+                Now, I continuously <strong>sharpen my skills</strong>, exploring <strong>new technologies</strong>  
+                and <strong>best practices</strong> to create <strong>responsive, high-performance websites</strong>.
+            </p>
+            <p>
+                When I'm not coding, you'll find me <strong>exploring UI/UX trends</strong>, 
+                <strong>building side projects</strong>, or <strong>learning about web accessibility</strong> 
+                to make the internet more inclusive for everyone. I'm excited about <strong>growing in the field</strong> 
+                and <strong>collaborating on projects</strong> that push the boundaries of web development.
+            </p>
+        </div>
+    `
+})
 
 document.addEventListener("click", function(e){
     handleEvent(e)
