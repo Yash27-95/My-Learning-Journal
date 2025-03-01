@@ -2,9 +2,36 @@ import data from "/data.js"
 
 // console.log(data)
 const main = document.getElementById("main")
+const home = document.getElementById("home")
 const sec1 = document.getElementById("s1")
 const grid = document.getElementById("grid")
 const about = document.getElementById("about")
+const view = document.getElementById("view")
+
+view.addEventListener("click", function(){
+
+    const cards = listCardsArray(); 
+
+    if(view.innerText === "View More"){
+        grid.innerHTML = "";
+        cards.forEach(element => {
+            grid.innerHTML += element
+        })
+        view.innerText = "View Less"
+        window.scrollTo({ top: grid.scrollHeight, behavior: "smooth" });
+    } else if (view.innerText === "View Less"){
+        grid.innerHTML = "";
+        cards.slice(0, 6).forEach(element => {
+            grid.innerHTML += element
+        })
+        view.innerText = "View More"
+        window.scrollTo({ top: grid.scrollHeight, behavior: "smooth" });
+    }
+})
+
+home.addEventListener("click", function() {
+    window.location.href = "/"; // Redirects to the home page
+});
 
 about.addEventListener("click", function(){
     main.innerHTML = `
@@ -32,40 +59,45 @@ about.addEventListener("click", function(){
                 to make the internet more inclusive for everyone. I'm excited about <strong>growing in the field</strong> 
                 and <strong>collaborating on projects</strong> that push the boundaries of web development.
             </p>
+            <p>🚀 Let's build something amazing together!</p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/yashwanth-kesthur-shankar-91641b1a7/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="https://discord.com/users/yashwanth9278" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                <li><a href="https://www.instagram.com/yashwanth-shankar" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://github.com/Yash27-95" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            </ul>
         </div>
     `
 })
 
 document.addEventListener("click", function(e){
-    handleEvent(e)
-} )
-
-document.addEventListener("keydown", function(e){
-    handleEvent(e)
-} )
-
-function handleEvent(e){
     if(e.target.id) {
         renderPage(e.target.id)
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // window.scrollTo({ top: 0, behavior: "smooth" });
     
     } else if(e.target.dataset.id){
         renderPage(e.target.dataset.id)
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-}
+} )
 
 function renderPage(id) {
     const matchingPost = data.find(post => post.id == id)
-    const {date, heading, description, image, list} = matchingPost
+
+    if (!matchingPost) {
+        console.error("No matching post found for ID:", id);
+        // sec1.innerHTML = "<p>Post not found.</p>";
+        return;
+    }
+
+    const { date, heading, description, image, list } = matchingPost
 
     const listContent = list.map(content => {
         return `
             <h3>${content.list_heading}</h3>
             <p>${content.list_description}</p>
         `
-    })
+    }).join('')
     
     sec1.innerHTML = `
         <div class="page">
@@ -77,15 +109,20 @@ function renderPage(id) {
                 alt="image representing the page ${heading}"
             />
             <div class="sub-content">
-                ${listContent.join('')}
+                ${listContent}
             </div>
         </div>
         <h4>Recent Posts</h4>
     `
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function renderlist() {
-    const listContent = data.map(item => {
+// function handleView(){
+//     renderlist()
+// }
+
+function listCardsArray(){
+    return data.map(item => {
         const {id, date, heading, description, image, title} = item 
         return `
             <div
@@ -103,10 +140,17 @@ function renderlist() {
             </div>
         `
     })
+}
 
-    listContent.forEach(element => {
+function renderlist() {
+    const listContent = listCardsArray()
+
+    listContent.slice(0, 6).forEach(element => {
         grid.innerHTML += element
     })
+
+    view.innerText = "View More"
+ 
 }
 
 function renderFeatured() {

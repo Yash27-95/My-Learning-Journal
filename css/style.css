@@ -126,7 +126,7 @@ p{
 /* grid layout */
 
 .grid-container {
-    padding: 1em 1em;
+    padding: 1em;
     display: grid;
     max-width: 100vw;
     gap: 1em;
@@ -136,14 +136,15 @@ p{
         "mg"
         "rd"
         "ad"
+        "ai"
         "dt"
         "dd"
-        "ai"
         "ds";
 } 
 
 .card {
     transition: 0.3s;
+    /* border: 1px solid red; */
 }
 
 .card-img {
@@ -330,7 +331,7 @@ main{
     display: inline-block;
     width: 0; /* Start hidden */
     vertical-align: bottom;
-    animation: typing 1.5s steps(25) forwards, blink 0.7s infinite;    
+    animation: typing 1.5s steps(35) forwards, blink 0.7s infinite;    
 }
 
 /* Typing effect */
@@ -343,6 +344,49 @@ main{
 @keyframes blink {
     50% { border-color: transparent; }
 }
+/* veiw link */
+
+.view-option{
+    cursor: pointer;
+    width: fit-content;
+    border-bottom: 1px solid rgb(4, 4, 4);
+    margin: 0 auto 2em;
+    /* text-align: center; */
+    font-size: medium;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.view-option:hover,
+.view-option:active,
+.view-option:focus{
+    color: purple;
+    border-bottom-color: purple;
+}
+
+/* social links */
+
+.about-me ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+    text-align: center;
+}
+.about-me ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333333;
+    transition: color 0.3s ease-in-out;
+}
+.about-me ul li a:hover {
+    color: #0077b5; /* LinkedIn blue */
+}
+.about-me ul li a i {
+    font-size: 1.25rem;
+    margin-right: 4px;
+}
+
 
 /* tablet design */
 
@@ -415,8 +459,8 @@ main{
         grid-template-areas:
             "wd wd wd wd mg mg mg mg"   
             "rd rd rd rd ad ad ad ad"
-            "dt dt dt dt dd dd dd dd"
-            "ai ai ai ai ds ds ds ds"
+            "ai ai ai ai dt dt dt dt"
+            "dd dd dd dd ds ds ds ds"
         ;
     }
 
@@ -447,10 +491,51 @@ main{
     h4{
         font-size: 1.4rem;
     }
+
+    .about-me{
+        padding: 1em 2em;
+    }
+
+    .about-me p{
+        text-align: left;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 250px; }
+    }
+
+    /* links  */
+
+    .about-me ul {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 15px;
+        padding: 0;
+        text-align: center;
+    }
+    .about-me ul li a {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-decoration: none;
+        font-size: 18px;
+        color: #333333;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .about-me ul li a i {
+        font-size: 1.75rem;
+        margin-right: 4px;
+    }
 }
 
 @media (min-width: 1024px){
-
+    main{
+        background-color: whitesmoke;
+    }
     header{
         padding: 2em 5em;
     }
@@ -506,9 +591,13 @@ main{
         grid-template-columns: repeat(12, 1fr);
         grid-template-areas:
          "wd wd wd wd mg mg mg mg rd rd rd rd"
-         "ad ad ad ad dt dt dt dt dd dd dd dd" 
-         "ai ai ai ai ai ai ai ds ds ds ds ds"   
+         "ad ad ad ad ai ai ai ai dt dt dt dt" 
+         "dd dd dd dd dd dd dd ds ds ds ds ds"   
         ;
+    }
+
+    .card{
+        background-color: #ffffff;
     }
     
     .card p{
@@ -535,5 +624,50 @@ main{
         width: 100%;
         height: 550px;
         object-fit: cover;
+    }
+
+    .about-me{
+        padding: 2em 5em;
+    }
+
+    .about-me p{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 60%;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 300px; }
+    }
+
+    .view-option{
+        font-size: 1.5rem;
+    }
+
+    /* links  */
+
+    .about-me ul {
+
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 15px;
+        padding: 0;
+        text-align: center;
+    }
+    .about-me ul li a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: #333333;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .about-me ul li a i {
+        font-size: 1.75rem;
+        margin-right: 4px;
     }
 } 
