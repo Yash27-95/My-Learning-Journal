@@ -170,6 +170,7 @@ function renderFeatured() {
                     <span class="date">${date}</span>
                     <h1 data-id=${id}>${heading}</h1>
                     <p>${trimmedDescr.trim()}.</p>
+                    <button class="cta-btn" id=${id}>Read Article</button>
                     </div>
                     `
                 }
