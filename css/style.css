@@ -235,6 +235,26 @@ p{
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);   
 }
 
+.cta-btn{
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    background-color: purple;
+    font-size: large;
+    font-weight: 500;
+    font-family: inherit;
+    margin-top: 1em;
+    padding: 1em 2em;
+    width: 40vw;
+    max-width: 400px;
+}
+
+.cta-btn:hover,
+.cta-btn:focus{
+    background-color: #ffffff;
+    color: purple;
+}
+
 /* page */
 
 .page {
